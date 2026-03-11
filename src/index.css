@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-gold-accent: #D4AF37;
+  --color-soft-alabaster: #F8F8F8;
+  --color-deep-grey: #1A1A1A;
+  --color-charcoal: #333333;
+  --font-playfair: "Playfair Display", serif;
+  --font-montserrat: "Montserrat", sans-serif;
+}
+
+:root {
+  --gold-accent: #D4AF37;
+  --soft-alabaster: #F8F8F8;
+  --deep-grey: #1A1A1A;
+  --charcoal: #333333;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--soft-alabaster);
+  color: var(--deep-grey);
+  overflow-x: hidden;
+}
+
+/* Custom selection color */
+::selection {
+  background-color: var(--gold-accent);
+  color: white;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Slick Carousel Custom Dots (if still used anywhere or for future-proofing) */
+.slick-dots li button:before {
+  color: var(--gold-accent) !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--gold-accent) !important;
+  opacity: 1 !important;
+}
