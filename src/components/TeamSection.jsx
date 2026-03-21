@@ -27,7 +27,7 @@ const TeamSection = () => {
     <section id="team" className="bg-soft-alabaster py-24 px-8 md:px-20 border-t border-black/5">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20 space-y-4 text-center">
-          <h3 className="text-gold-accent font-montserrat uppercase tracking-[0.5em] text-xs font-bold italic">Mentes Visionárias</h3>
+          <span className="text-gold-accent font-montserrat uppercase tracking-[0.5em] text-xs font-bold italic block">Mentes Visionárias</span>
           <h2 className="text-deep-grey font-playfair text-4xl md:text-6xl uppercase tracking-tighter">Nossa <span className="text-gold-accent italic">Equipe</span></h2>
         </div>
 

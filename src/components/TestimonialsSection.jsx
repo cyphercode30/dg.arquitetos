@@ -38,7 +38,7 @@ const TestimonialsSection = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20 space-y-4">
-          <h3 className="text-gold-accent font-montserrat uppercase tracking-[0.5em] text-xs font-bold">Vozes de Prestígio</h3>
+          <span className="text-gold-accent font-montserrat uppercase tracking-[0.5em] text-xs font-bold block">Vozes de Prestígio</span>
           <h2 className="text-deep-grey font-playfair text-4xl md:text-5xl uppercase">O que dizem os nossos <span className="text-gold-accent italic">Parceiros</span></h2>
         </div>
 
@@ -57,7 +57,7 @@ const TestimonialsSection = () => {
                 {t.quote}
               </p>
               <div className="pt-8 border-t border-gold-accent/20 w-full">
-                <h4 className="text-deep-grey font-montserrat font-bold text-sm tracking-[0.2em] uppercase">{t.name}</h4>
+                <h3 className="text-deep-grey font-montserrat font-bold text-sm tracking-[0.2em] uppercase">{t.name}</h3>
                 <p className="text-gold-accent/60 font-montserrat text-[10px] uppercase tracking-[0.3em] mt-2 font-bold italic">{t.position}</p>
               </div>
             </motion.div>

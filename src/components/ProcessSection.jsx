@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 
 // 40 frames in public/images/plant-animations/
 const FRAME_COUNT = 40;
 const framePath = (index) =>
-  `/images/plant-animations/ezgif-frame-${index.toString().padStart(3, '0')}.png`;
+  `/images/plant-animations/ezgif-frame-${index.toString().padStart(3, '0')}.webp`;
 
 // 4 process steps — each pinned to a scroll quarter
 const STEPS = [

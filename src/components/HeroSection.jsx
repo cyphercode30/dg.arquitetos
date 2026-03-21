@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 
 // Actual frames available in public/images/hero-animation/
 const FRAME_COUNT = 31;
 const framePath = (index) =>
-  `/images/hero-animation/ezgif-frame-${index.toString().padStart(3, '0')}.png`;
+  `/images/hero-animation/ezgif-frame-${index.toString().padStart(3, '0')}.webp`;
 
 const HeroSection = () => {
   const containerRef = useRef(null);

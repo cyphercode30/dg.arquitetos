@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 
 
 const DG_FRAME_COUNT = 9;
 const dgFramePath = (index) =>
-  `/images/DG-Scroll-Animation/ezgif-frame-${index.toString().padStart(3, '0')}.png`;
+  `/images/DG-Scroll-Animation/ezgif-frame-${index.toString().padStart(3, '0')}.webp`;
 
 const AboutSection = () => {
   const containerRef = useRef(null);
@@ -168,14 +168,14 @@ const AboutSection = () => {
             
             {/* Header stays pinned */}
             <div className="space-y-4 mb-12 flex flex-col items-center lg:items-start">
-              <motion.h3
+              <motion.span
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="text-gold-accent font-montserrat uppercase tracking-[0.5em] text-xs font-bold"
+                className="text-gold-accent font-montserrat uppercase tracking-[0.5em] text-xs font-bold block"
               >
                 O Fundador
-              </motion.h3>
+              </motion.span>
               <motion.h2
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}

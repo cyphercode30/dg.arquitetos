@@ -12,7 +12,6 @@ const Navbar = () => {
       const currentScrollY = window.scrollY;
       setScrolled(currentScrollY > 50);
       
-      // Hide on scroll down, show on scroll up
       if (currentScrollY > lastScrollY.current && currentScrollY > 200) {
         setHidden(true);
       } else {
@@ -35,20 +34,22 @@ const Navbar = () => {
       initial={{ y: 0 }}
       animate={{ y: hidden && !mobileMenuOpen ? '-100%' : 0 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      aria-label="Navegação principal"
       className={`fixed top-0 w-full z-50 transition-colors duration-500 ${
         scrolled ? 'bg-soft-alabaster/90 backdrop-blur-md py-4 border-b border-black/5' : 'bg-transparent py-8'
       }`}
     >
       <div className="max-w-7xl mx-auto px-8 md:px-20 flex justify-between items-center">
-        {/* Logo */}
-        <motion.div 
+        {/* Logo — accessible button */}
+        <motion.button 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="cursor-pointer"
+          className="cursor-pointer bg-transparent border-none p-0"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Voltar ao topo da página"
         >
-          <img src="/images/DG-logo.svg" alt="DG Arquitetos Logo" className="h-8 md:h-10 w-auto" />
-        </motion.div>
+          <img src="/images/DG-logo.svg" alt="DG Arquitetos" className="h-8 md:h-10 w-auto" />
+        </motion.button>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-12">
@@ -66,13 +67,16 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Toggle — accessible */}
         <div className="md:hidden">
            <button 
              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-             className="text-deep-grey focus:outline-none"
+             className="text-deep-grey focus:outline-none p-2"
+             aria-label={mobileMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
+             aria-expanded={mobileMenuOpen}
+             aria-controls="mobile-menu"
            >
-              <div className="space-y-1.5">
+              <div className="space-y-1.5" aria-hidden="true">
                  <div className={`w-8 h-0.5 bg-current transition-all ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
                  <div className={`w-6 h-0.5 bg-current ml-auto transition-all ${mobileMenuOpen ? 'opacity-0' : ''}`} />
                  <div className={`w-8 h-0.5 bg-current transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
@@ -85,6 +89,8 @@ const Navbar = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
+            id="mobile-menu"
+            role="menu"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -94,6 +100,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
+                role="menuitem"
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-deep-grey text-3xl font-playfair hover:text-gold-accent transition-colors"
               >

@@ -36,7 +36,6 @@ const ServicesSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeService = services[activeIndex];
 
-  // Auto-play the services every 3 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % services.length);
@@ -44,6 +43,13 @@ const ServicesSection = () => {
 
     return () => clearInterval(timer);
   }, []);
+
+  const handleServiceKeyDown = (e, index) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setActiveIndex(index);
+    }
+  };
 
   return (
     <section id="services" className="bg-soft-alabaster py-24 px-8 md:px-20 relative overflow-hidden">
@@ -62,7 +68,7 @@ const ServicesSection = () => {
                 className="space-y-12"
               >
                 <div className="space-y-4">
-                  <h3 className="text-gold-accent font-montserrat uppercase tracking-[0.5em] text-xs font-bold">Expertise</h3>
+                  <span className="text-gold-accent font-montserrat uppercase tracking-[0.5em] text-xs font-bold">Expertise</span>
                   <h2 className="text-deep-grey font-playfair text-5xl md:text-7xl leading-none">
                     {activeService.heroTitle.split(' ').map((word, i, arr) => {
                       if (i === arr.length - 1 || i === arr.length - 2) {
@@ -79,27 +85,28 @@ const ServicesSection = () => {
             </AnimatePresence>
           </div>
 
-          {/* Right Column: Service List */}
-          <div className="grid grid-cols-1 gap-1">
+          {/* Right Column: Service List — keyboard accessible */}
+          <div className="grid grid-cols-1 gap-1" role="tablist" aria-label="Lista de serviços">
             {services.map((service, index) => {
               const isActive = activeService.id === service.id;
               
               return (
-                <motion.div
+                <div
                   key={service.id}
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  role="tab"
+                  tabIndex={0}
+                  aria-selected={isActive}
+                  aria-label={`Serviço ${service.id}: ${service.title}`}
                   onClick={() => setActiveIndex(index)}
-                  className={`group p-8 border-b border-black/5 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl hover:z-10 ${
+                  onKeyDown={(e) => handleServiceKeyDown(e, index)}
+                  className={`group p-8 border-b border-black/5 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl hover:z-10 focus:outline-none focus:ring-2 focus:ring-gold-accent/50 ${
                     isActive ? 'bg-white border-gold-accent/30' : 'hover:bg-white'
                   }`}
                 >
                   <div className="flex items-start space-x-8">
                     <span className={`font-playfair text-3xl transition-colors duration-500 ${
                       isActive ? 'text-gold-accent' : 'text-gold-accent/30 group-hover:text-gold-accent/70'
-                    }`}>
+                    }`} aria-hidden="true">
                       {service.id}
                     </span>
                     <div className="space-y-3">
@@ -115,7 +122,7 @@ const ServicesSection = () => {
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

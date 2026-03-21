@@ -6,21 +6,21 @@ const projects = [
     id: 1,
     title: 'Villa Talatona',
     category: 'Residencial',
-    image: '/images/portifolio/1.png',
+    image: '/images/portifolio/1.webp',
     size: '1,200 m²',
   },
   {
     id: 2,
     title: 'Edifício Horizon',
     category: 'Corporativo',
-    image: '/images/portifolio/2.png',
+    image: '/images/portifolio/2.webp',
     size: '5,000 m²',
   },
   {
     id: 3,
     title: 'Mussulo Retreat',
     category: 'Lazer',
-    image: '/images/portifolio/3.png',
+    image: '/images/portifolio/3.webp',
     size: '800 m²',
   },
 ];
@@ -31,7 +31,7 @@ const ProjectsSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
           <div className="space-y-4">
-            <h3 className="text-gold-accent font-montserrat uppercase tracking-[0.5em] text-xs font-bold">Portfólio</h3>
+            <span className="text-gold-accent font-montserrat uppercase tracking-[0.5em] text-xs font-bold">Portfólio</span>
             <h2 className="text-deep-grey font-playfair text-5xl md:text-7xl italic">Projectos <span className="text-gold-accent not-italic">Icónicos</span></h2>
           </div>
           <p className="text-charcoal/60 font-montserrat max-w-xs text-sm uppercase tracking-widest leading-loose">
@@ -52,8 +52,11 @@ const ProjectsSection = () => {
               <div className="aspect-[3/4] overflow-hidden bg-deep-grey/5 relative shadow-lg">
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`Projeto ${project.title} — ${project.category}, ${project.size}`}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  width="600"
+                  height="800"
                 />
               </div>
               
@@ -65,8 +68,7 @@ const ProjectsSection = () => {
                 </div>
               </div>
               
-              {/* Decorative line reveal */}
-              <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-gold-accent group-hover:w-full transition-all duration-700 delay-100" />
+              <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-gold-accent group-hover:w-full transition-all duration-700 delay-100" aria-hidden="true" />
             </motion.div>
           ))}
         </div>

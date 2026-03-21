@@ -2,9 +2,58 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/images/DG-logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>D|G Arquitetos</title>
+
+    <!-- SEO: Title & Description -->
+    <title>DG Arquitetos — Arquitetura de Alto Padrão em Angola</title>
+    <meta name="description" content="DG Arquitetos — estúdio de arquitetura de alto padrão em Angola. Projetos residenciais de luxo, design de interiores, consultoria de investimento e urbanismo sustentável. Liderado pelo Arq. Delton Gonga." />
+    <link rel="canonical" href="https://dg-arquitetos.vercel.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DG Arquitetos — Arquitetura de Alto Padrão em Angola" />
+    <meta property="og:description" content="Estúdio de arquitetura de alto padrão em Luanda. Residências de luxo, design de interiores e urbanismo sustentável." />
+    <meta property="og:url" content="https://dg-arquitetos.vercel.app/" />
+    <meta property="og:image" content="https://dg-arquitetos.vercel.app/images/DG-logo.svg" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="DG Arquitetos" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DG Arquitetos — Arquitetura de Alto Padrão em Angola" />
+    <meta name="twitter:description" content="Estúdio de arquitetura de alto padrão em Luanda. Residências de luxo, design de interiores e urbanismo sustentável." />
+    <meta name="twitter:image" content="https://dg-arquitetos.vercel.app/images/DG-logo.svg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/images/DG-logo.svg" />
+
+    <!-- Preload hero LCP image for faster first paint -->
+    <link rel="preload" as="image" href="/images/hero-animation/ezgif-frame-001.webp" type="image/webp" fetchpriority="high" />
+
+    <!-- JSON-LD Structured Data: Architecture Firm -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ArchitecturalFirm",
+      "name": "DG Arquitetos",
+      "description": "Estúdio de arquitetura de alto padrão em Angola, especializado em residências de luxo, design de interiores, consultoria de investimento e urbanismo sustentável.",
+      "url": "https://dg-arquitetos.vercel.app/",
+      "logo": "https://dg-arquitetos.vercel.app/images/DG-logo.svg",
+      "founder": {
+        "@type": "Person",
+        "name": "Delton Gonga",
+        "jobTitle": "Arquiteto Principal & Fundador"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Luanda",
+        "addressCountry": "AO"
+      },
+      "areaServed": "Angola",
+      "knowsLanguage": ["pt"],
+      "serviceType": ["Arquitetura Residencial", "Design de Interiores", "Consultoria de Investimento", "Urbanismo Sustentável"]
+    }
+    </script>
   </head>
   <body class="bg-black">
     <div id="root"></div>
